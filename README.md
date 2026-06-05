@@ -51,7 +51,7 @@ A modern full-stack Cafe Management System designed for cafes and restaurants. T
 ## Project Screenshots
 
 ### Home Page
-![Home Page](screenshot/homepage.png)
+![Home Page](screenshot/hompage.png)
 
 ### Home Page 2
 ![Home Page 2](screenshot/homepage2.png)
@@ -62,6 +62,28 @@ A modern full-stack Cafe Management System designed for cafes and restaurants. T
 ### Admin Login Button 
 ![Admin Login Button](screenshot/adminlogin.png)
 
-## Author
 
+## Admin Access
+
+### Login Credentials
+
+* Username: zoops
+* Password: zoops@zoo
+
+### Login Button Location
+
+The admin login button is intentionally small and located in the footer section of the website.
+
+### Admin Capabilities
+
+* Add Menu Items
+* Edit Menu Items
+* Delete Menu Items
+* Upload Food Images
+* Manage Gallery
+* Manage Reviews
+* Update Prices and Descriptions
+
+
+## Author
 Praveen M

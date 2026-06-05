@@ -56,10 +56,10 @@ A modern full-stack Cafe Management System designed for cafes and restaurants. T
 ### Home Page 2
 ![Home Page 2](screenshot/homepage2.png)
 
-### Home Page 2
+### Menu Items
 ![Menu Items](screenshot/MenuItems.png)
 
-### Home Page 2
+### Admin Login Button 
 ![Admin Login Button](screenshot/adminlogin.png)
 
 ## Author

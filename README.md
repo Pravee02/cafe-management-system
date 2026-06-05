@@ -1,22 +1,53 @@
 # Cafe Management System
 
-A full-stack Cafe Management System with admin authentication, dynamic menu management, customer reviews, gallery management, image uploads, and database integration.
+A modern full-stack Cafe Management System designed for cafes and restaurants. The application provides menu management, customer reviews, gallery management, and admin controls through a secure authentication system.
 
 ## Features
 
-- Admin Login
-- Dynamic Menu Management
-- Food Gallery
-- Customer Reviews
-- Image Uploads
-- Responsive Design
-- Database Integration
+### Customer Features
+- View Menu
+- Browse Food Gallery
+- Browse Customer Gallery
+- Read Reviews
+- Contact Information
+- Mobile Responsive Design
 
-## Technologies
+### Admin Features
+- Secure Login
+- Add Menu Items
+- Edit Menu Items
+- Delete Menu Items
+- Upload Food Photos
+- Manage Customer Gallery
+- Manage Reviews
+- Update Prices
 
-- HTML
-- CSS
+## Technologies Used
+
+### Frontend
+- HTML5
+- CSS3
 - JavaScript
+
+### Backend
 - Node.js
 - Express.js
-- JSON Database
+
+### Database
+- MongoDB
+
+## Project Screenshots
+
+(Add screenshots here)
+
+## Future Improvements
+
+- Online Ordering
+- Table Reservations
+- Loyalty Program
+- QR Menu Access
+- Analytics Dashboard
+
+## Author
+
+Praveen M

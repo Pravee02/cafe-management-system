@@ -1,0 +1,233 @@
+{
+  "menuItems": [
+    {
+      "id": "p1",
+      "category": "pizza",
+      "name": "Sourdough Margherita Pizza",
+      "price": 249,
+      "description": "Tomato sauce, fresh mozzarella, fresh basil, and virgin olive oil on hand-stretched sourdough crust.",
+      "isVeg": true,
+      "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "p2",
+      "category": "pizza",
+      "name": "Paneer Tikka Pizza",
+      "price": 299,
+      "description": "Clay-oven spiced paneer chunks, bell peppers, red onions, coriander, and mint-mayo drizzle.",
+      "isVeg": true,
+      "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "b1",
+      "category": "burger",
+      "name": "Cheese Lava Burger",
+      "price": 189,
+      "description": "Crispy veggie patty stuffed with liquid cheddar, topped with caramelized onions and signature sauce.",
+      "isVeg": true,
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "b2",
+      "category": "burger",
+      "name": "Maharaja Paneer Burger",
+      "price": 219,
+      "description": "Double layer spiced paneer slabs, iceberg lettuce, tomatoes, and tandoori dressing.",
+      "isVeg": true,
+      "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "m1",
+      "category": "momos",
+      "name": "Tandoori Paneer Momos",
+      "price": 149,
+      "description": "Dumplings stuffed with spiced paneer, charred in clay oven, served with spicy red chili chutney.",
+      "isVeg": true,
+      "image": "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "f1",
+      "category": "fries",
+      "name": "Peri Peri French Fries",
+      "price": 99,
+      "description": "Golden skin-on french fries tossed in an aromatic, fiery peri-peri seasoning blend.",
+      "isVeg": true,
+      "image": "https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "t1",
+      "category": "tea",
+      "name": "Elaichi Cutting Chai",
+      "price": 39,
+      "description": "Traditional street-style tea brewed with freshly crushed ginger, green cardamom, and milk.",
+      "isVeg": true,
+      "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "c1",
+      "category": "coffee",
+      "name": "Rose & Honey Specialty Latte",
+      "price": 129,
+      "description": "A student favorite! Double shot of aromatic Arabica espresso, steamed milk, organic honey infusion, and fresh rose petal garnish. Sweet, warm, and highly energizing.",
+      "isVeg": true,
+      "image": "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "s1",
+      "category": "shakes",
+      "name": "Belgian Chocolate Shake",
+      "price": 169,
+      "description": "Thick shake made with 70% dark Belgian chocolate gelato, topped with brownie chunks.",
+      "isVeg": true,
+      "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "k1",
+      "category": "mocktails",
+      "name": "Blue Lagoon Mocktail",
+      "price": 129,
+      "description": "Refreshing summer drink with blue curacao syrup, freshly squeezed lime juice, mint leaves, and soda.",
+      "isVeg": true,
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": "w1",
+      "category": "sandwiches",
+      "name": "Sourdough Pesto Sandwich",
+      "price": 179,
+      "description": "House-made basil pesto, fresh tomatoes, creamy mozzarella cheese, grilled on artisan sourdough.",
+      "isVeg": true,
+      "image": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev1",
+      "name": "Aarav Sharma",
+      "rating": 5,
+      "role": "Student at DTU",
+      "review": "Zoop Cafe is our go-to hangout spot. The Rose Latte is out of this world, and the aesthetic is insanely cozy. Perfect place to code or catch up with friends."
+    },
+    {
+      "id": "rev2",
+      "name": "Neha Kapoor",
+      "role": "Local Foodie",
+      "rating": 5,
+      "review": "From the glassmorphic cards to the curated menu, Zoop is perfect. The Cheesy Lava Burger is loaded and super delicious!"
+    },
+    {
+      "id": "rev_1780575067827",
+      "name": "praveen M",
+      "role": "student @kuvempu",
+      "rating": 5,
+      "review": "very good"
+    },
+    {
+      "id": "rev_1780575076280",
+      "name": "v",
+      "role": "v",
+      "rating": 5,
+      "review": "v"
+    },
+    {
+      "id": "rev_1780575097184",
+      "name": "x",
+      "role": "x",
+      "rating": 5,
+      "review": "x"
+    }
+  ],
+  "selfieWall": [
+    {
+      "id": 1,
+      "name": "Preeti & Sarthak",
+      "rating": 5,
+      "likes": 124,
+      "review": "Weekend vibes at our favorite corner! Food is awesome!",
+      "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": 2,
+      "name": "Kabir Verma",
+      "rating": 5,
+      "likes": 89,
+      "review": "Tackling midterms with double caffeine and hot momos. 🔥",
+      "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      "id": 3,
+      "name": "Megha Sen",
+      "rating": 5,
+      "likes": 156,
+      "review": "Obsessed with the aesthetics here! Perfect lighting for selfies.",
+      "image": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=600&q=80"
+    }
+  ],
+  "gallery": [
+    {
+      "id": "g1",
+      "category": "pizza",
+      "title": "Cheesy Sourdough Margherita",
+      "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "g2",
+      "category": "burger",
+      "title": "Cheese Lava Burger Closeup",
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "g3",
+      "category": "coffee",
+      "title": "Aromatic Hot Espresso",
+      "image": "https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "g4",
+      "category": "momos",
+      "title": "Clay Oven Dumplings",
+      "image": "https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "g5",
+      "category": "tea",
+      "title": "Cardamom Hot Chai",
+      "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": "g_1780579969743",
+      "category": "pizza",
+      "title": "zoop",
+      "image": "/uploads/image-1780579961757-767579217.jpg"
+    }
+  ],
+  "todaySpecial": {
+    "name": "Rose & Honey Specialty Latte",
+    "price": 129,
+    "image": "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=1000&q=80",
+    "description": "A student favorite! Double shot of aromatic Arabica espresso, steamed milk, organic honey infusion, and fresh rose petal garnish. Sweet, warm, and highly energizing."
+  },
+  "specialOffers": [
+    {
+      "id": "off1",
+      "tag": "Campus Deal",
+      "title": "Semester Survival Combo",
+      "desc": "A signature Cheesy Lava Burger, crispy French Fries, and a piping hot Elaichi Cutting Chai.",
+      "price": "₹169"
+    },
+    {
+      "id": "off2",
+      "tag": "Weekend Vibe",
+      "title": "Sunday Hangout Platter",
+      "desc": "Order any two of our hand-stretched sourdough pizzas and get two chilled mocktails free.",
+      "price": "Free Mocktails"
+    },
+    {
+      "id": "off3",
+      "tag": "Birthday Treat",
+      "title": "Birthday Bash Discount",
+      "desc": "Host your party at Zoop! Get flat 20% off your total bill and a complimentary Belgian chocolate shake.",
+      "price": "Flat 20% Off"
+    }
+  ]
+}

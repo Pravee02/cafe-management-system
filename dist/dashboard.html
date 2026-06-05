@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZOOP CAFE | Admin Dashboard</title>
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Custom Styling -->
+  
+  <style>
+    .admin-nav-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border-glass);
+    }
+    .admin-tab-btn {
+      padding: 10px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-glass);
+      cursor: pointer;
+      font-family: var(--font-title);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: var(--transition-fast);
+      white-space: nowrap;
+    }
+    .admin-tab-btn.active, .admin-tab-btn:hover {
+      background: var(--accent-gold);
+      color: var(--text-dark);
+      border-color: var(--accent-gold);
+    }
+    .admin-tab-content {
+      display: none;
+    }
+    .admin-tab-content.active {
+      display: block;
+    }
+    .admin-list-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    .admin-list-table th, .admin-list-table td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid var(--border-glass);
+      font-size: 0.9rem;
+    }
+    .admin-list-table th {
+      color: var(--accent-gold);
+      font-family: var(--font-title);
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+    }
+    .admin-list-table td img {
+      width: 50px;
+      height: 50px;
+      border-radius: 4px;
+      object-fit: cover;
+    }
+    .admin-action-btn {
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      border-radius: 4px;
+      cursor: pointer;
+      border: none;
+    }
+    .admin-btn-delete {
+      background: rgba(239, 68, 68, 0.15);
+      color: #EF4444;
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+    .admin-btn-delete:hover {
+      background: #EF4444;
+      color: white;
+    }
+    .upload-preview {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius-sm);
+      border: 1px dashed var(--border-glass);
+      margin-top: 10px;
+      display: none;
+      object-fit: cover;
+    }
+    .upload-status {
+      font-size: 0.8rem;
+      margin-top: 5px;
+      display: none;
+    }
+  </style>
+  <link rel="stylesheet" crossorigin href="/assets/style-DTpJWuth.css">
+</head>
+<body class="owner-wrapper" style="opacity: 0;">
+
+  <!-- SECURE ADMIN CONTAINER -->
+  <div class="owner-dashboard glass" id="dashboard-container">
+    <div class="owner-db-header">
+      <h2>Owner <span>Dashboard</span></h2>
+      <a class="btn btn-gold" href="/logout" style="padding: 8px 16px; font-size: 0.8rem;"><i class="fa-solid fa-sign-out-alt"></i> Logout</a>
+    </div>
+
+    <!-- Tab navigation pills -->
+    <div class="admin-nav-tabs">
+      <div class="admin-tab-btn active" data-tab="specials">Specials & Offers</div>
+      <div class="admin-tab-btn" data-tab="menu">Menu Items</div>
+      <div class="admin-tab-btn" data-tab="food-gallery">Food Photos</div>
+      <div class="admin-tab-btn" data-tab="selfies">Guest Selfies</div>
+      <div class="admin-tab-btn" data-tab="reviews">Reviews</div>
+    </div>
+
+    <div class="owner-status-msg success" id="db-status-msg">Changes saved successfully!</div>
+
+    <!-- TAB CONTENT: SPECIALS & OFFERS -->
+    <div class="admin-tab-content active" id="tab-specials">
+      <form id="form-specials">
+        <div class="owner-db-grid">
+          <div class="owner-section-box">
+            <h3>Edit Today's Special</h3>
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Item Name</label>
+              <input type="text" id="special-name" required>
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Price (₹)</label>
+              <input type="number" id="special-price" required>
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Upload Image</label>
+              <input type="file" class="image-file-input" data-target="special-image" accept="image/*">
+              <input type="hidden" id="special-image" required>
+              <img id="special-image-preview" class="upload-preview" alt="Preview">
+              <div class="upload-status">Uploading...</div>
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Description</label>
+              <textarea id="special-desc" required style="height: 100px;"></textarea>
+            </div>
+          </div>
+
+          <div class="owner-section-box">
+            <h3>Edit Special Offers</h3>
+            
+            <div style="margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px;">
+              <strong style="color: var(--accent-orange); font-size: 0.85rem;">Offer 1 (Campus Deal)</strong>
+              <input type="text" id="offer1-title" placeholder="Title" required style="margin-bottom: 5px;">
+              <input type="text" id="offer1-price" placeholder="Price (e.g. ₹169)" required style="margin-bottom: 5px;">
+              <input type="text" id="offer1-desc" placeholder="Details" required>
+            </div>
+
+            <div style="margin-bottom: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 10px;">
+              <strong style="color: var(--accent-orange); font-size: 0.85rem;">Offer 2 (Weekend Vibe)</strong>
+              <input type="text" id="offer2-title" placeholder="Title" required style="margin-bottom: 5px;">
+              <input type="text" id="offer2-price" placeholder="Price" required style="margin-bottom: 5px;">
+              <input type="text" id="offer2-desc" placeholder="Details" required>
+            </div>
+
+            <div>
+              <strong style="color: var(--accent-orange); font-size: 0.85rem;">Offer 3 (Birthday Treat)</strong>
+              <input type="text" id="offer3-title" placeholder="Title" required style="margin-bottom: 5px;">
+              <input type="text" id="offer3-price" placeholder="Price" required style="margin-bottom: 5px;">
+              <input type="text" id="offer3-desc" placeholder="Details" required>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 20px;">Save Specials <i class="fa-solid fa-save"></i></button>
+      </form>
+    </div>
+
+    <!-- TAB CONTENT: MENU CRUD -->
+    <div class="admin-tab-content" id="tab-menu">
+      <div class="owner-db-grid">
+        <div class="owner-section-box">
+          <h3>Add Menu Item</h3>
+          <form id="form-add-menu">
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Name</label>
+              <input type="text" id="add-menu-name" required>
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Category</label>
+              <select id="add-menu-category" required style="width: 100%; padding: 15px; border-radius: var(--radius-sm); border: 1px solid var(--border-glass); background: #121214; color: var(--text-primary);">
+                <option value="pizza">Pizza</option>
+                <option value="burger">Burger</option>
+                <option value="momos">Momos</option>
+                <option value="fries">Fries</option>
+                <option value="tea">Tea</option>
+                <option value="coffee">Coffee</option>
+                <option value="shakes">Shakes</option>
+                <option value="mocktails">Mocktails</option>
+                <option value="sandwiches">Sandwiches</option>
+                <option value="rolls">Rolls</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Price (₹)</label>
+              <input type="number" id="add-menu-price" required>
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Upload Photo</label>
+              <input type="file" class="image-file-input" data-target="add-menu-image" accept="image/*">
+              <input type="hidden" id="add-menu-image" required>
+              <img id="add-menu-image-preview" class="upload-preview" alt="Preview">
+              <div class="upload-status">Uploading...</div>
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Description</label>
+              <textarea id="add-menu-desc" required style="height: 80px;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Item <i class="fa-solid fa-plus"></i></button>
+          </form>
+        </div>
+
+        <div class="owner-section-box" style="overflow-x: auto; max-height: 500px;">
+          <h3>Current Menu Items</h3>
+          <table class="admin-list-table" id="table-menu-items">
+            <thead>
+              <tr>
+                <th>Photo</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB CONTENT: FOOD GALLERY -->
+    <div class="admin-tab-content" id="tab-food-gallery">
+      <div class="owner-db-grid">
+        <div class="owner-section-box">
+          <h3>Add Food Photo</h3>
+          <form id="form-add-food-photo">
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Caption / Title</label>
+              <input type="text" id="add-photo-title" required placeholder="e.g. Cheese Pizza Closeup">
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Category Tag</label>
+              <select id="add-photo-tag" required style="width: 100%; padding: 15px; border-radius: var(--radius-sm); border: 1px solid var(--border-glass); background: #121214; color: var(--text-primary);">
+                <option value="pizza">Pizza</option>
+                <option value="burger">Burger</option>
+                <option value="momos">Momos</option>
+                <option value="tea">Tea</option>
+                <option value="coffee">Coffee</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Upload Photo</label>
+              <input type="file" class="image-file-input" data-target="add-photo-image" accept="image/*">
+              <input type="hidden" id="add-photo-image" required>
+              <img id="add-photo-image-preview" class="upload-preview" alt="Preview">
+              <div class="upload-status">Uploading...</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Photo <i class="fa-solid fa-upload"></i></button>
+          </form>
+        </div>
+
+        <div class="owner-section-box" style="overflow-x: auto; max-height: 500px;">
+          <h3>Food Photo Gallery</h3>
+          <table class="admin-list-table" id="table-food-photos">
+            <thead>
+              <tr>
+                <th>Thumbnail</th>
+                <th>Title</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB CONTENT: SELFIE GALLERY -->
+    <div class="admin-tab-content" id="tab-selfies">
+      <div class="owner-db-grid">
+        <div class="owner-section-box">
+          <h3>Add Guest Memory (Selfie / Celebration)</h3>
+          <form id="form-add-selfie">
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Name / Group Title</label>
+              <input type="text" id="add-selfie-name" required placeholder="e.g. Rahul Birthday Party">
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Photo Caption</label>
+              <input type="text" id="add-selfie-review" required placeholder="e.g. Birthday celebration at Zoop Cafe 🎉">
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Upload Photo</label>
+              <input type="file" class="image-file-input" data-target="add-selfie-image" accept="image/*">
+              <input type="hidden" id="add-selfie-image" required>
+              <img id="add-selfie-image-preview" class="upload-preview" alt="Preview">
+              <div class="upload-status">Uploading...</div>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Photo <i class="fa-solid fa-plus"></i></button>
+          </form>
+        </div>
+
+        <div class="owner-section-box" style="overflow-x: auto; max-height: 500px;">
+          <h3>Guest Selfies & Celebrations</h3>
+          <table class="admin-list-table" id="table-selfie-photos">
+            <thead>
+              <tr>
+                <th>Selfie</th>
+                <th>Caption</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB CONTENT: REVIEWS -->
+    <div class="admin-tab-content" id="tab-reviews">
+      <div class="owner-db-grid">
+        <div class="owner-section-box">
+          <h3>Add Verified Review</h3>
+          <form id="form-add-review">
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Customer Name</label>
+              <input type="text" id="add-rev-name" required>
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Description / Role</label>
+              <input type="text" id="add-rev-role" placeholder="e.g. Student at DTU" required>
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Rating (1-5)</label>
+              <input type="number" id="add-rev-rating" min="1" max="5" value="5" required>
+            </div>
+            <div class="form-group">
+              <label style="font-size: 0.8rem; color: var(--text-muted);">Review Quote</label>
+              <textarea id="add-rev-text" required style="height: 80px;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Add Review <i class="fa-solid fa-plus"></i></button>
+          </form>
+        </div>
+
+        <div class="owner-section-box" style="overflow-x: auto; max-height: 500px;">
+          <h3>Verified Reviews</h3>
+          <table class="admin-list-table" id="table-reviews">
+            <thead>
+              <tr>
+                <th>Customer</th>
+                <th>Review Quote</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Rendered via JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="owner-db-footer">
+      <a href="/" class="btn btn-secondary"><i class="fa-solid fa-arrow-left"></i> Back to Site</a>
+    </div>
+  </div>
+
+  <!-- SCRIPTS -->
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Session check on load
+      fetch('/api/auth/status?_t=' + Date.now())
+        .then(res => res.json())
+        .then(data => {
+          if (!data.loggedIn) {
+            window.location.href = '/admin-login';
+          } else {
+            // Show body and load data
+            document.body.style.opacity = '1';
+            initDashboard();
+          }
+        })
+        .catch(err => {
+          window.location.href = '/admin-login';
+        });
+
+      function initDashboard() {
+        initTabs();
+        initImageUploaders();
+        loadSpecialsData();
+        loadMenuItems();
+        loadFoodPhotos();
+        loadSelfies();
+        loadReviews();
+      }
+
+      // Initialize tabs toggles
+      function initTabs() {
+        const tabs = document.querySelectorAll('.admin-tab-btn');
+        const contents = document.querySelectorAll('.admin-tab-content');
+
+        tabs.forEach(tab => {
+          tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            contents.forEach(c => c.classList.remove('active'));
+
+            tab.classList.add('active');
+            document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+          });
+        });
+      }
+
+      // Initialize File Image Uploaders
+      function initImageUploaders() {
+        const fileInputs = document.querySelectorAll('.image-file-input');
+        fileInputs.forEach(input => {
+          input.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const targetInputId = input.dataset.target;
+            const targetInput = document.getElementById(targetInputId);
+            const previewImg = document.getElementById(targetInputId + '-preview');
+            const statusDiv = input.parentNode.querySelector('.upload-status');
+
+            // Show loading status
+            if (statusDiv) {
+              statusDiv.style.display = 'block';
+              statusDiv.style.color = 'var(--accent-gold)';
+              statusDiv.textContent = 'Uploading image...';
+            }
+
+            const formData = new FormData();
+            formData.append('image', file);
+
+            fetch('/api/admin/upload', {
+              method: 'POST',
+              body: formData
+            })
+            .then(res => {
+              if (!res.ok) throw new Error('Upload failed');
+              return res.json();
+            })
+            .then(data => {
+              // Set value to input
+              if (targetInput) targetInput.value = data.url;
+              
+              // Set preview
+              if (previewImg) {
+                previewImg.src = data.url;
+                previewImg.style.display = 'block';
+              }
+
+              if (statusDiv) {
+                statusDiv.style.color = '#10B981';
+                statusDiv.textContent = 'Image uploaded successfully!';
+              }
+            })
+            .catch(err => {
+              console.error(err);
+              if (statusDiv) {
+                statusDiv.style.color = '#EF4444';
+                statusDiv.textContent = 'Upload failed. Try again.';
+              }
+            });
+          });
+        });
+      }
+
+      const dbStatus = document.getElementById('db-status-msg');
+      function showSuccess(msg = 'Changes saved successfully!') {
+        dbStatus.textContent = msg;
+        dbStatus.style.display = 'block';
+        gsap.fromTo(dbStatus, { opacity: 0 }, { opacity: 1, duration: 0.3 });
+
+        setTimeout(() => {
+          gsap.to(dbStatus, {
+            opacity: 0,
+            duration: 0.3,
+            onComplete: () => {
+              dbStatus.style.display = 'none';
+            }
+          });
+        }, 2500);
+      }
+
+      /* ==========================================
+         TAB: SPECIALS & OFFERS
+         ========================================== */
+      function loadSpecialsData() {
+        fetch('/api/special')
+          .then(res => res.json())
+          .then(data => {
+            if (data.todaySpecial) {
+              document.getElementById('special-name').value = data.todaySpecial.name || '';
+              document.getElementById('special-price').value = data.todaySpecial.price || '';
+              document.getElementById('special-image').value = data.todaySpecial.image || '';
+              document.getElementById('special-desc').value = data.todaySpecial.description || '';
+
+              if (data.todaySpecial.image) {
+                const preview = document.getElementById('special-image-preview');
+                preview.src = data.todaySpecial.image;
+                preview.style.display = 'block';
+              }
+            }
+            if (data.specialOffers && data.specialOffers.length >= 3) {
+              document.getElementById('offer1-title').value = data.specialOffers[0].title || '';
+              document.getElementById('offer1-price').value = data.specialOffers[0].price || '';
+              document.getElementById('offer1-desc').value = data.specialOffers[0].desc || '';
+
+              document.getElementById('offer2-title').value = data.specialOffers[1].title || '';
+              document.getElementById('offer2-price').value = data.specialOffers[1].price || '';
+              document.getElementById('offer2-desc').value = data.specialOffers[1].desc || '';
+
+              document.getElementById('offer3-title').value = data.specialOffers[2].title || '';
+              document.getElementById('offer3-price').value = data.specialOffers[2].price || '';
+              document.getElementById('offer3-desc').value = data.specialOffers[2].desc || '';
+            }
+          })
+          .catch(err => console.error(err));
+      }
+
+      document.getElementById('form-specials').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const todaySpecial = {
+          name: document.getElementById('special-name').value.trim(),
+          price: parseFloat(document.getElementById('special-price').value),
+          image: document.getElementById('special-image').value.trim(),
+          description: document.getElementById('special-desc').value.trim()
+        };
+
+        const specialOffers = [
+          {
+            id: "off1",
+            tag: "Campus Deal",
+            title: document.getElementById('offer1-title').value.trim(),
+            price: document.getElementById('offer1-price').value.trim(),
+            desc: document.getElementById('offer1-desc').value.trim()
+          },
+          {
+            id: "off2",
+            tag: "Weekend Vibe",
+            title: document.getElementById('offer2-title').value.trim(),
+            price: document.getElementById('offer2-price').value.trim(),
+            desc: document.getElementById('offer2-desc').value.trim()
+          },
+          {
+            id: "off3",
+            tag: "Birthday Treat",
+            title: document.getElementById('offer3-title').value.trim(),
+            price: document.getElementById('offer3-price').value.trim(),
+            desc: document.getElementById('offer3-desc').value.trim()
+          }
+        ];
+
+        // Save
+        Promise.all([
+          fetch('/api/admin/special', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(todaySpecial)
+          }),
+          fetch('/api/admin/special/offers', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(specialOffers)
+          })
+        ])
+        .then(() => showSuccess())
+        .catch(err => alert('Error saving specials.'));
+      });
+
+      /* ==========================================
+         TAB: MENU CRUD
+         ========================================== */
+      function loadMenuItems() {
+        const tbody = document.querySelector('#table-menu-items tbody');
+        fetch('/api/menu')
+          .then(res => res.json())
+          .then(items => {
+            tbody.innerHTML = items.map(item => `
+              <tr>
+                <td><img src="${item.image}" alt=""></td>
+                <td><strong>${item.name}</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">${item.category}</span></td>
+                <td>₹${item.price}</td>
+                <td>
+                  <button class="admin-action-btn admin-btn-delete" onclick="deleteMenuItem('${item.id || item._id}')"><i class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+            `).join('');
+          });
+      }
+
+      document.getElementById('form-add-menu').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const payload = {
+          name: document.getElementById('add-menu-name').value.trim(),
+          category: document.getElementById('add-menu-category').value,
+          price: parseFloat(document.getElementById('add-menu-price').value),
+          image: document.getElementById('add-menu-image').value.trim(),
+          description: document.getElementById('add-menu-desc').value.trim()
+        };
+
+        fetch('/api/admin/menu', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+        .then(() => {
+          showSuccess('Menu item added successfully!');
+          document.getElementById('form-add-menu').reset();
+          
+          const preview = document.getElementById('add-menu-image-preview');
+          if (preview) preview.style.display = 'none';
+          const status = document.getElementById('add-menu-image').parentNode.querySelector('.upload-status');
+          if (status) status.style.display = 'none';
+
+          loadMenuItems();
+        });
+      });
+
+      window.deleteMenuItem = function(id) {
+        if (!confirm('Are you sure you want to delete this menu item?')) return;
+        fetch('/api/admin/menu/' + id, { method: 'DELETE' })
+          .then(() => {
+            showSuccess('Menu item removed.');
+            loadMenuItems();
+          });
+      };
+
+      /* ==========================================
+         TAB: FOOD GALLERY CRUD
+         ========================================== */
+      function loadFoodPhotos() {
+        const tbody = document.querySelector('#table-food-photos tbody');
+        fetch('/api/gallery/food')
+          .then(res => res.json())
+          .then(photos => {
+            tbody.innerHTML = photos.map(photo => `
+              <tr>
+                <td><img src="${photo.image}" alt=""></td>
+                <td><strong>${photo.title}</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">${photo.category}</span></td>
+                <td>
+                  <button class="admin-action-btn admin-btn-delete" onclick="deleteFoodPhoto('${photo.id || photo._id}')"><i class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+            `).join('');
+          });
+      }
+
+      document.getElementById('form-add-food-photo').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const payload = {
+          title: document.getElementById('add-photo-title').value.trim(),
+          category: document.getElementById('add-photo-tag').value,
+          image: document.getElementById('add-photo-image').value.trim()
+        };
+
+        fetch('/api/admin/gallery/food', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+        .then(() => {
+          showSuccess('Food photo added to gallery.');
+          document.getElementById('form-add-food-photo').reset();
+          
+          const preview = document.getElementById('add-photo-image-preview');
+          if (preview) preview.style.display = 'none';
+          const status = document.getElementById('add-photo-image').parentNode.querySelector('.upload-status');
+          if (status) status.style.display = 'none';
+
+          loadFoodPhotos();
+        });
+      });
+
+      window.deleteFoodPhoto = function(id) {
+        if (!confirm('Are you sure you want to delete this photo?')) return;
+        fetch('/api/admin/gallery/food/' + id, { method: 'DELETE' })
+          .then(() => {
+            showSuccess('Photo removed from gallery.');
+            loadFoodPhotos();
+          });
+      };
+
+      /* ==========================================
+         TAB: SELFIE GALLERY CRUD
+         ========================================== */
+      function loadSelfies() {
+        const tbody = document.querySelector('#table-selfie-photos tbody');
+        fetch('/api/gallery/selfie')
+          .then(res => res.json())
+          .then(selfies => {
+            tbody.innerHTML = selfies.map(selfie => `
+              <tr>
+                <td><img src="${selfie.image}" alt=""></td>
+                <td><strong>${selfie.name}</strong><br><span style="font-size: 0.75rem; color: var(--text-muted); font-style: italic;">"${selfie.review}"</span></td>
+                <td>
+                  <button class="admin-action-btn admin-btn-delete" onclick="deleteSelfie('${selfie.id || selfie._id}')"><i class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+            `).join('');
+          });
+      }
+
+      document.getElementById('form-add-selfie').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const payload = {
+          name: document.getElementById('add-selfie-name').value.trim(),
+          review: document.getElementById('add-selfie-review').value.trim(),
+          image: document.getElementById('add-selfie-image').value.trim()
+        };
+
+        fetch('/api/admin/gallery/selfie', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+        .then(() => {
+          showSuccess('Selfie uploaded successfully!');
+          document.getElementById('form-add-selfie').reset();
+          
+          const preview = document.getElementById('add-selfie-image-preview');
+          if (preview) preview.style.display = 'none';
+          const status = document.getElementById('add-selfie-image').parentNode.querySelector('.upload-status');
+          if (status) status.style.display = 'none';
+
+          loadSelfies();
+        });
+      });
+
+      window.deleteSelfie = function(id) {
+        if (!confirm('Are you sure you want to delete this guest selfie?')) return;
+        fetch('/api/admin/gallery/selfie/' + id, { method: 'DELETE' })
+          .then(() => {
+            showSuccess('Selfie removed.');
+            loadSelfies();
+          });
+      };
+
+      /* ==========================================
+         TAB: REVIEWS CRUD
+         ========================================== */
+      function loadReviews() {
+        const tbody = document.querySelector('#table-reviews tbody');
+        fetch('/api/reviews')
+          .then(res => res.json())
+          .then(reviews => {
+            tbody.innerHTML = reviews.map(rev => `
+              <tr>
+                <td><strong>${rev.name}</strong><br><span style="font-size: 0.75rem; color: var(--text-muted);">${rev.role}</span></td>
+                <td style="font-size: 0.85rem; font-style: italic;">"${rev.review}"</td>
+                <td>
+                  <button class="admin-action-btn admin-btn-delete" onclick="deleteReview('${rev.id || rev._id}')"><i class="fa fa-trash"></i></button>
+                </td>
+              </tr>
+            `).join('');
+          });
+      }
+
+      document.getElementById('form-add-review').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const payload = {
+          name: document.getElementById('add-rev-name').value.trim(),
+          role: document.getElementById('add-rev-role').value.trim(),
+          rating: parseInt(document.getElementById('add-rev-rating').value),
+          review: document.getElementById('add-rev-text').value.trim()
+        };
+
+        fetch('/api/admin/reviews', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        })
+        .then(() => {
+          showSuccess('Review logged successfully.');
+          document.getElementById('form-add-review').reset();
+          loadReviews();
+        });
+      });
+
+      window.deleteReview = function(id) {
+        if (!confirm('Are you sure you want to delete this review?')) return;
+        fetch('/api/admin/reviews/' + id, { method: 'DELETE' })
+          .then(() => {
+            showSuccess('Review deleted.');
+            loadReviews();
+          });
+      };
+    });
+  </script>
+</body>
+</html>

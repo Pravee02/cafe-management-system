@@ -1,0 +1,16 @@
+import"./main-zv1clUsT.js";/* empty css              */document.addEventListener("DOMContentLoaded",()=>{let t="food",o="all";window.adminAuthChecked?r():document.addEventListener("adminAuthChecked",r);function r(){r.hasRun||(r.hasRun=!0,c(),m(),d(),window.refreshCMSPage=function(n){n==="gallery"&&d()})}function c(){const n=document.querySelectorAll("#gallery-main-toggles .gallery-pill"),s=document.getElementById("gallery-food-subpills");n.forEach(l=>{l.addEventListener("click",()=>{n.forEach(a=>a.classList.remove("active")),l.classList.add("active"),t=l.dataset.mainTab,t==="food"?s&&(s.style.display="flex"):s&&(s.style.display="none"),d()})});const e=document.querySelectorAll("#gallery-food-subpills .gallery-pill");e.forEach(l=>{l.addEventListener("click",()=>{e.forEach(a=>a.classList.remove("active")),l.classList.add("active"),o=l.dataset.foodFilter,d()})})}function m(){if(new URLSearchParams(window.location.search).get("tab")==="selfie"){t="selfie";const e=document.querySelectorAll("#gallery-main-toggles .gallery-pill");e.forEach(a=>{a.dataset.mainTab==="selfie"&&(e.forEach(i=>i.classList.remove("active")),a.classList.add("active"))});const l=document.getElementById("gallery-food-subpills");l&&(l.style.display="none")}}function d(){const n=document.getElementById("gallery-masonry-container");if(!n)return;if(window.isAdminLoggedIn){let e=document.getElementById("admin-add-gallery-banner");if(!e){e=document.createElement("div"),e.id="admin-add-gallery-banner",e.className="admin-add-banner",e.style.marginTop="10px",e.style.marginBottom="25px";const l=document.getElementById("gallery-food-subpills")||document.getElementById("gallery-main-toggles");l.parentNode.insertBefore(e,l.nextSibling)}e.innerHTML=`<button onclick="openAddGalleryCMS('${t}')"><i class="fa-solid fa-plus"></i> Add New ${t==="food"?"Food Photo":"Guest Memory"}</button>`}fetch(t==="food"?"/api/gallery/food":"/api/gallery/selfie").then(e=>e.json()).then(e=>{let l=[];t==="food"?o==="all"?l=e:l=e.filter(a=>{const i=a.title.toLowerCase();return o==="pizza"?i.includes("pizza")||i.includes("margherita"):o==="burger"?i.includes("burger"):o==="momos"?i.includes("momo")||i.includes("dumpling"):o==="tea"?i.includes("tea")||i.includes("chai"):o==="coffee"?i.includes("coffee")||i.includes("latte"):!1}):l=e.map(a=>({id:a.id||a._id,title:`${a.name}'s Memory`,image:a.image})),n.innerHTML=l.map(a=>`
+            <div class="gallery-masonry-item glass" style="position: relative;">
+              ${window.isAdminLoggedIn?`
+            <div class="admin-card-controls">
+              <div class="admin-btn admin-btn-delete" onclick="deleteGalleryCMS('${a.id||a._id}', '${t}')" title="Delete Photo"><i class="fa-solid fa-trash"></i></div>
+            </div>
+          `:""}
+              <img src="${a.image}" alt="${a.title}">
+              <div class="gallery-masonry-overlay">
+                <h4>${a.title}</h4>
+                <a href="${a.image}" data-lightbox="gallery-view" class="gallery-zoom-btn">
+                  <i class="fa-solid fa-expand"></i>
+                </a>
+              </div>
+            </div>
+          `).join(""),gsap.fromTo(".gallery-masonry-item",{opacity:0,scale:.96},{opacity:1,scale:1,duration:.5,stagger:.04,ease:"power2.out"})}).catch(e=>console.error("Error fetching gallery items:",e))}});

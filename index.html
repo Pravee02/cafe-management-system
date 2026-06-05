@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZOOP CAFE | Student Favorite Fast-Food & Cafe Spot</title>
+  <meta name="description" content="Welcome to ZOOP CAFE - the ultimate campus hangout. Enjoy fresh burgers, loaded fries, hot teas, specialty lattes, and awesome student vibes.">
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Swiper.js CDN CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css">
+  
+  <!-- AOS CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  
+  <!-- Custom Styling -->
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-modal">
+    <span class="lightbox-close"><i class="fa fa-times"></i></span>
+    <div class="lightbox-content">
+      <img src="" alt="Zoomed view">
+    </div>
+  </div>
+
+  <!-- DESKTOP NAVIGATION -->
+  <header class="navbar glass-heavy">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fa-solid fa-mug-hot text-gold"></i>
+        ZOOP<span>CAFE</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="menu.html" class="nav-link">Menu</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- MOBILE TOP HEADER BAR -->
+  <header class="header-mobile glass-heavy">
+    <a href="index.html" class="logo">ZOOP<span>CAFE</span></a>
+    <div class="menu-toggle-btn">
+      <i class="fa fa-bars-staggered"></i>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER OVERLAY -->
+  <div class="menu-drawer glass-heavy">
+    <div class="drawer-header">
+      <span class="logo font-title">ZOOP<span>CAFE</span></span>
+      <span class="drawer-close-btn"><i class="fa fa-times"></i></span>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="index.html" class="drawer-link active">Home</a></li>
+      <li><a href="menu.html" class="drawer-link">Menu</a></li>
+      <li><a href="gallery.html" class="drawer-link">Gallery</a></li>
+      <li><a href="reviews.html" class="drawer-link">Reviews</a></li>
+      <li><a href="contact.html" class="drawer-link">Contact</a></li>
+    </ul>
+    <div class="drawer-socials">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="https://wa.me/919999999999"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+
+  <!-- MOBILE PERSISTENT BOTTOM NAVIGATION DOCK -->
+  <nav class="bottom-nav glass-heavy">
+    <a href="index.html" class="bottom-nav-item active">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="menu.html" class="bottom-nav-item">
+      <i class="fa-solid fa-utensils"></i>
+      <span>Menu</span>
+    </a>
+    <a href="gallery.html" class="bottom-nav-item">
+      <i class="fa-solid fa-images"></i>
+      <span>Gallery</span>
+    </a>
+    <a href="reviews.html" class="bottom-nav-item">
+      <i class="fa-solid fa-star"></i>
+      <span>Reviews</span>
+    </a>
+    <a href="contact.html" class="bottom-nav-item">
+      <i class="fa-solid fa-envelope"></i>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <!-- MAIN BODY CONTENT -->
+  <main>
+    
+    <!-- SECTION 1: CINEMATIC HERO -->
+    <section class="hero-section">
+      <div class="hero-bg" style="background: linear-gradient(to bottom, rgba(10, 10, 11, 0.5), rgba(10, 10, 11, 0.98)), url('https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;"></div>
+      <div class="container hero-container">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+          <span class="hero-badge badge badge-gold" style="margin-bottom: 20px;">Est. 2026 &bull; The Reserve</span>
+          <h1 class="hero-title font-title" style="font-size: 5.5rem; line-height: 1.0; margin-bottom: 30px; letter-spacing: 2px;">ZOOP <span class="text-gold">CAFE</span></h1>
+          <div class="hero-tagline-container" style="margin-bottom: 40px;">
+            <p class="hero-tagline font-serif" style="font-size: 2.2rem; line-height: 1.3; font-weight: 400; color: var(--text-primary);">
+              Fresh Food.<br>
+              Premium Coffee.<br>
+              Memorable Moments.
+            </p>
+          </div>
+          <div class="hero-actions">
+            <a href="menu.html" class="btn btn-gold" style="border-radius: var(--radius-full); padding: 16px 36px; letter-spacing: 2px;"><i class="fa-solid fa-utensils"></i> Explore The Menu</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Scroll Indicator -->
+      <a href="#brand-story" class="hero-scroll-down">
+        <span style="font-size: 0.75rem; letter-spacing: 2px;">Discover More</span>
+        <i class="fa-solid fa-arrow-down-long text-gold" style="margin-top: 5px;"></i>
+      </a>
+    </section>
+
+    <!-- SECTION 2: BRAND STORY -->
+    <section id="brand-story" class="section brand-story-section">
+      <div class="container">
+        <div class="story-grid">
+          <!-- Asymmetric Visual Layer -->
+          <div class="story-visual" data-aos="fade-right">
+            <div class="main-img-wrap">
+              <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80" alt="Cafe Ambient Lighting">
+            </div>
+            <div class="overlap-img-wrap glass">
+              <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80" alt="Handcrafted Brewing">
+            </div>
+            <div class="gold-accent-border"></div>
+          </div>
+          
+          <!-- Narrative Column -->
+          <div class="story-content" data-aos="fade-left">
+            <span class="section-subtitle">Our Philosophy</span>
+            <h2 class="font-title story-heading">A Legacy of Taste & <span class="text-gold">Craftsmanship</span></h2>
+            <p class="story-lead">At ZOOP CAFE, we redefine social dining by blending artisanal ingredients with premium design aesthetics. Every detail is curated for a refined, modern campus experience.</p>
+            
+            <div class="story-pillars-grid">
+              <div class="pillar-item">
+                <div class="pillar-icon"><i class="fa-solid fa-leaf"></i></div>
+                <div class="pillar-info">
+                  <h4>Fresh Ingredients</h4>
+                  <p>Sourced daily from premium local farms to ensure rich, vibrant profiles in every plate.</p>
+                </div>
+              </div>
+              <div class="pillar-item">
+                <div class="pillar-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <div class="pillar-info">
+                  <h4>Quality Preparation</h4>
+                  <p>Artisanal brewing and strict hygienic kitchen standards managed by culinary masters.</p>
+                </div>
+              </div>
+              <div class="pillar-item">
+                <div class="pillar-icon"><i class="fa-solid fa-couch"></i></div>
+                <div class="pillar-info">
+                  <h4>Comfortable Environment</h4>
+                  <p>Ambient gold lighting, soft lounge spaces, high-speed Wi-Fi, and work-friendly seats.</p>
+                </div>
+              </div>
+              <div class="pillar-item">
+                <div class="pillar-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                <div class="pillar-info">
+                  <h4>Student Friendly Vibe</h4>
+                  <p>Top-tier international cafe standards designed for accessible DTU campus life budgets.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SIGNATURE EXPERIENCE -->
+    <section class="section signature-section bg-secondary-wrap">
+      <div class="container">
+        <div class="section-title-wrapper" data-aos="fade-up">
+          <span class="section-subtitle">The Collection</span>
+          <h2 class="section-title">Signature <span class="text-gold">Experience</span></h2>
+        </div>
+        
+        <div class="signature-cards-grid">
+          <!-- Pizza Card -->
+          <div class="sig-card glass" data-aos="fade-up" data-aos-delay="100">
+            <div class="sig-img-wrap">
+              <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80" alt="Artisan Pizza">
+            </div>
+            <div class="sig-card-body">
+              <span class="sig-card-num">01</span>
+              <h3>Artisan Sourdough Pizza</h3>
+              <p>Hand-stretched sourdough base slow-fermented for 24 hours, topped with fresh mozzarella, heirloom tomatoes, and extra virgin olive oil.</p>
+              <a href="menu.html?cat=pizza" class="sig-card-link">View Pizzas <i class="fa-solid fa-arrow-right-long"></i></a>
+            </div>
+          </div>
+          
+          <!-- Burger Card -->
+          <div class="sig-card glass" data-aos="fade-up" data-aos-delay="200">
+            <div class="sig-img-wrap">
+              <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80" alt="Gourmet Burger">
+            </div>
+            <div class="sig-card-body">
+              <span class="sig-card-num">02</span>
+              <h3>Gourmet Stacked Burgers</h3>
+              <p>Crispy hand-pressed spiced patties loaded with molten liquid cheddar cheese, caramelized balsamic onions, and signature house-made lava glaze.</p>
+              <a href="menu.html?cat=burger" class="sig-card-link">View Burgers <i class="fa-solid fa-arrow-right-long"></i></a>
+            </div>
+          </div>
+          
+          <!-- Momos Card -->
+          <div class="sig-card glass" data-aos="fade-up" data-aos-delay="300">
+            <div class="sig-img-wrap">
+              <img src="https://images.unsplash.com/photo-1625220194771-7ebded0d90ae?auto=format&fit=crop&w=600&q=80" alt="Steaming Momos">
+            </div>
+            <div class="sig-card-body">
+              <span class="sig-card-num">03</span>
+              <h3>Steaming Fusion Momos</h3>
+              <p>Premium handcrafted dumplings crusted with crunchy cornflakes, cooked in clay tandoors and served with fiery roasted red chili dipping sauce.</p>
+              <a href="menu.html?cat=momos" class="sig-card-link">View Momos <i class="fa-solid fa-arrow-right-long"></i></a>
+            </div>
+          </div>
+          
+          <!-- Tea Card -->
+          <div class="sig-card glass" data-aos="fade-up" data-aos-delay="400">
+            <div class="sig-img-wrap">
+              <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80" alt="Premium Tea">
+            </div>
+            <div class="sig-card-body">
+              <span class="sig-card-num">04</span>
+              <h3>Adrak Elaichi Teas</h3>
+              <p>Traditional Indian street-style cutting chai brewed with hand-crushed ginger root, green cardamom pods, and creamy local milk.</p>
+              <a href="menu.html?cat=tea" class="sig-card-link">View Teas <i class="fa-solid fa-arrow-right-long"></i></a>
+            </div>
+          </div>
+          
+          <!-- Coffee Card -->
+          <div class="sig-card glass" data-aos="fade-up" data-aos-delay="500">
+            <div class="sig-img-wrap">
+              <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80" alt="Specialty Coffee">
+            </div>
+            <div class="sig-card-body">
+              <span class="sig-card-num">05</span>
+              <h3>Specialty Coffee & Lattes</h3>
+              <p>Freshly pulled shots of organic Arabica espresso infused with raw orange-blossom honey and finished with steamed milk and dried rose petals.</p>
+              <a href="menu.html?cat=coffee" class="sig-card-link">View Coffees <i class="fa-solid fa-arrow-right-long"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: WHY CUSTOMERS CHOOSE US -->
+    <section class="section why-choose-section">
+      <div class="container">
+        <div class="section-title-wrapper" data-aos="fade-up">
+          <span class="section-subtitle">Fresh Ingredients &bull; Hygienic Kitchen &bull; Premium Coffee &bull; Fast Service</span>
+          <h2 class="section-title">Why Students Love <span class="text-gold">Zoop Cafe</span></h2>
+        </div>
+        
+        <div class="why-choose-grid">
+          <!-- Card 1 -->
+          <div class="choose-card glass" data-aos="fade-up" data-aos-delay="100">
+            <div class="choose-icon-wrap"><i class="fa-solid fa-leaf"></i></div>
+            <h3>Fresh Daily Ingredients</h3>
+            <p>Fresh, farm-to-table vegetables and hand-milled flours delivered to our kitchen every single morning.</p>
+          </div>
+          
+          <!-- Card 2 -->
+          <div class="choose-card glass" data-aos="fade-up" data-aos-delay="200">
+            <div class="choose-icon-wrap"><i class="fa-solid fa-shield-halved"></i></div>
+            <h3>Hygienic Preparation</h3>
+            <p>Sanitized workstations, clean standard operating procedures, and 100% transparent FSSAI kitchen audits.</p>
+          </div>
+          
+          <!-- Card 3 -->
+          <div class="choose-card glass" data-aos="fade-up" data-aos-delay="300">
+            <div class="choose-icon-wrap"><i class="fa-solid fa-mug-hot"></i></div>
+            <h3>Premium Coffee</h3>
+            <p>Single-origin organic Arabica beans slow-roasted to medium-dark profiles and ground fresh per order.</p>
+          </div>
+          
+          <!-- Card 4 -->
+          <div class="choose-card glass" data-aos="fade-up" data-aos-delay="400">
+            <div class="choose-icon-wrap"><i class="fa-solid fa-bolt-lightning"></i></div>
+            <h3>Fast Service</h3>
+            <p>Responsive, state-of-the-art preparation workflow designed to serve fresh food within minutes of order placement.</p>
+          </div>
+          
+          <!-- Card 5 -->
+          <div class="choose-card glass" data-aos="fade-up" data-aos-delay="500">
+            <div class="choose-icon-wrap"><i class="fa-solid fa-couch"></i></div>
+            <h3>Comfortable Seating</h3>
+            <p>Ergonomic leather chairs, warm oak communal study tables, and power points for seamless laptop work sessions.</p>
+          </div>
+          
+          <!-- Card 6 -->
+          <div class="choose-card glass" data-aos="fade-up" data-aos-delay="600">
+            <div class="choose-icon-wrap"><i class="fa-solid fa-face-smile"></i></div>
+            <h3>Friendly Environment</h3>
+            <p>A welcoming, vibrant social hub defined by hospitality, background jazz tunes, and campus camaraderie.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: VISIT US -->
+    <section id="visit-us" class="section visit-section bg-secondary-wrap">
+      <div class="container">
+        <div class="section-title-wrapper" data-aos="fade-up">
+          <span class="section-subtitle">Experience Our Ambience</span>
+          <h2 class="section-title">Visit <span class="text-gold">Us</span></h2>
+        </div>
+        <div class="visit-box glass" data-aos="zoom-in" data-aos-duration="1000">
+          <div class="visit-details">
+            <div class="visit-detail-item">
+              <h4>Location</h4>
+              <p>Opposite DTU Campus Main Gate, Bawana Rd, Shahbad Daulatpur, Delhi 110042</p>
+            </div>
+            <div class="visit-detail-item">
+              <h4>Opening Hours</h4>
+              <p>Monday - Sunday &bull; 10:00 AM - 11:30 PM</p>
+            </div>
+            <div class="visit-detail-item">
+              <h4>Contact Us</h4>
+              <p>+91 99999 99999 &bull; info@zoopcafe.com</p>
+            </div>
+          </div>
+          <div class="visit-actions">
+            <a href="https://maps.google.com/?q=Delhi+Technological+University" target="_blank" class="btn btn-gold" style="border-radius: var(--radius-full); padding: 16px 36px; font-weight: 700; width: 100%; max-width: 320px; display: inline-flex;">
+              <i class="fa-solid fa-location-arrow"></i> Get Directions
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PREMIUM FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- About Col -->
+        <div class="footer-col footer-about">
+          <a href="index.html" class="logo font-title">ZOOP<span>CAFE</span></a>
+          <p>ZOOP CAFE is the ultimate student-favorite fast food spot. Serving fresh loaded burgers, hand-stretched pizzas, wraps, and specialty teas at prices made for campus life.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-btn"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="footer-social-btn"><i class="fab fa-twitter"></i></a>
+            <a href="https://wa.me/919999999999" class="footer-social-btn"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <!-- Quick Links Col -->
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="reviews.html">Customer Reviews</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Col -->
+        <div class="footer-col">
+          <h3>Connect</h3>
+          <ul class="footer-contact-info">
+            <li>
+              <i class="fa-solid fa-phone"></i>
+              <span>+91 99999 99999<br>+91 88888 88888</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-envelope"></i>
+              <span>info@zoopcafe.com<br>support@zoopcafe.com</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-location-dot"></i>
+              <span>Opposite DTU Main Gate, Bawana Rd, Shahbad Daulatpur, Delhi 110042</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- Hours Col -->
+        <div class="footer-col footer-newsletter">
+          <h3>Working Hours</h3>
+          <p style="margin-bottom: 10px;">Open 7 Days a week</p>
+          <p style="color: var(--accent-gold); font-weight: 600; margin-bottom: 25px;">10:00 AM - 11:30 PM</p>
+          <h3>Join the Club</h3>
+          <p>Get notified about special student discounts & campus events.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      
+      <!-- Footer Copyright -->
+      <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <p>&copy; 2026 <span>ZOOP CAFE</span>. All Rights Reserved. Made for food lovers.</p>
+        <a href="admin-login.html" class="admin-login-link" style="font-size: 0.75rem; color: var(--text-muted); opacity: 0.3; text-decoration: none; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.3">Admin</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS SECTION -->
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  
+  <!-- Swiper JS CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  
+  <!-- AOS JS CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+  <!-- Cafe Data -->
+  <script type="module" src="assets/js/data.js"></script>
+  
+  <!-- Admin Controls Script -->
+  <script type="module" src="assets/js/admin-control.js"></script>
+
+  <!-- Main Script -->
+  <script type="module" src="assets/js/main.js"></script>
+  
+  <!-- Homepage Specific Script -->
+  <script type="module" src="assets/js/home.js"></script>
+</body>
+</html>

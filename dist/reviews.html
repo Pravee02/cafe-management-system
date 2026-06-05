@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZOOP CAFE | Customer Reviews & Photos</title>
+  <meta name="description" content="See authentic reviews and campus memories shared by guests at ZOOP CAFE. Add your own rating and experience details.">
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- AOS CSS CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  
+  <!-- Custom Styling -->
+  <script type="module" crossorigin src="/assets/reviews-COwaoeYd.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/main-zv1clUsT.js">
+  <link rel="stylesheet" crossorigin href="/assets/style-DTpJWuth.css">
+</head>
+<body>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-modal">
+    <span class="lightbox-close"><i class="fa fa-times"></i></span>
+    <div class="lightbox-content">
+      <img src="" alt="Zoomed view">
+    </div>
+  </div>
+
+  <!-- DESKTOP NAVIGATION -->
+  <header class="navbar glass-heavy">
+    <div class="nav-container">
+      <a href="index.html" class="nav-logo">
+        <i class="fa-solid fa-mug-hot text-gold"></i>
+        ZOOP<span>CAFE</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="menu.html" class="nav-link">Menu</a></li>
+        <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+        <li><a href="reviews.html" class="nav-link active">Reviews</a></li>
+        <li><a href="contact.html" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- MOBILE TOP HEADER BAR -->
+  <header class="header-mobile glass-heavy">
+    <a href="index.html" class="logo">ZOOP<span>CAFE</span></a>
+    <div class="menu-toggle-btn">
+      <i class="fa fa-bars-staggered"></i>
+    </div>
+  </header>
+
+  <!-- MOBILE DRAWER OVERLAY -->
+  <div class="menu-drawer glass-heavy">
+    <div class="drawer-header">
+      <span class="logo font-title">ZOOP<span>CAFE</span></span>
+      <span class="drawer-close-btn"><i class="fa fa-times"></i></span>
+    </div>
+    <ul class="drawer-links">
+      <li><a href="index.html" class="drawer-link">Home</a></li>
+      <li><a href="menu.html" class="drawer-link">Menu</a></li>
+      <li><a href="gallery.html" class="drawer-link">Gallery</a></li>
+      <li><a href="reviews.html" class="drawer-link active">Reviews</a></li>
+      <li><a href="contact.html" class="drawer-link">Contact</a></li>
+    </ul>
+    <div class="drawer-socials">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="https://wa.me/919999999999"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+
+  <!-- MOBILE PERSISTENT BOTTOM NAVIGATION DOCK -->
+  <nav class="bottom-nav glass-heavy">
+    <a href="index.html" class="bottom-nav-item">
+      <i class="fa-solid fa-house"></i>
+      <span>Home</span>
+    </a>
+    <a href="menu.html" class="bottom-nav-item">
+      <i class="fa-solid fa-utensils"></i>
+      <span>Menu</span>
+    </a>
+    <a href="gallery.html" class="bottom-nav-item">
+      <i class="fa-solid fa-images"></i>
+      <span>Gallery</span>
+    </a>
+    <a href="reviews.html" class="bottom-nav-item active">
+      <i class="fa-solid fa-star"></i>
+      <span>Reviews</span>
+    </a>
+    <a href="contact.html" class="bottom-nav-item">
+      <i class="fa-solid fa-envelope"></i>
+      <span>Contact</span>
+    </a>
+  </nav>
+
+  <!-- MAIN BODY CONTENT -->
+  <main>
+    
+    <!-- Reviews Header Banner -->
+    <section class="reviews-header-bar">
+      <div class="container">
+        <h1 class="font-title" data-aos="fade-down" style="font-size: 3rem; font-weight: 800; text-transform: uppercase;">REVIEWS & MEMORIES</h1>
+        <p class="font-serif" data-aos="fade-up" style="color: var(--accent-gold); font-style: italic; font-size: 1.2rem; margin-top: 10px;">Vibes and Feeds Shared by Our Campus Community</p>
+      </div>
+    </section>
+
+    <!-- Detailed Customer Reviews (Selfie + Quote Merged) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-title-wrapper" data-aos="fade-up">
+          <span class="section-subtitle">Verified Feeds</span>
+          <h2 class="section-title">Customer Memories <span>Real photos, real reviews</span></h2>
+        </div>
+        
+        <div class="menu-grid" id="reviews-page-merged-container" data-aos="fade-up" data-aos-delay="200">
+          <!-- Rendered dynamically via reviews.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Add Review Form -->
+    <section class="section bg-secondary-wrap">
+      <div class="container">
+        <div class="write-review-card glass" data-aos="fade-up">
+          <h3>Share Your Zoop Memory</h3>
+          <p>Drop your star rating, a brief review, and optionally a selfie URL to join our wall.</p>
+          
+          <form id="add-review-form">
+            <div class="star-rating-input" id="star-rating-selector">
+              <i class="fa-solid fa-star active" data-value="1"></i>
+              <i class="fa-solid fa-star active" data-value="2"></i>
+              <i class="fa-solid fa-star active" data-value="3"></i>
+              <i class="fa-solid fa-star active" data-value="4"></i>
+              <i class="fa-solid fa-star active" data-value="5"></i>
+            </div>
+            
+            <div class="form-group-row">
+              <div class="form-group">
+                <input type="text" id="reviewer-name" placeholder="Your Name" required>
+              </div>
+              <div class="form-group">
+                <input type="text" id="reviewer-role" placeholder="e.g. Student at DTU, CS Major" required>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <input type="text" id="reviewer-photo-url" placeholder="Selfie Photo URL (Optional - leave empty for default placeholder)">
+            </div>
+            
+            <div class="form-group">
+              <textarea id="reviewer-text" placeholder="Tell us what you ordered (e.g. peri peri fries, cold coffee) and how the vibe was..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary form-submit-btn">Submit Review <i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PREMIUM FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-about">
+          <a href="index.html" class="logo font-title">ZOOP<span>CAFE</span></a>
+          <p>ZOOP CAFE is the ultimate student-favorite fast food spot. Serving fresh loaded burgers, hand-stretched pizzas, wraps, and specialty teas at prices made for campus life.</p>
+          <div class="footer-socials">
+            <a href="#" class="footer-social-btn"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="footer-social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="footer-social-btn"><i class="fab fa-twitter"></i></a>
+            <a href="https://wa.me/919999999999" class="footer-social-btn"><i class="fab fa-whatsapp"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Our Menu</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="reviews.html">Customer Reviews</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Connect</h3>
+          <ul class="footer-contact-info">
+            <li><i class="fa-solid fa-phone"></i><span>+91 99999 99999<br>+91 88888 88888</span></li>
+            <li><i class="fa-solid fa-envelope"></i><span>info@zoopcafe.com<br>support@zoopcafe.com</span></li>
+            <li><i class="fa-solid fa-location-dot"></i><span>Opposite DTU Main Gate, Bawana Rd, Shahbad Daulatpur, Delhi 110042</span></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col footer-newsletter">
+          <h3>Working Hours</h3>
+          <p style="margin-bottom: 10px;">Open 7 Days a week</p>
+          <p style="color: var(--accent-gold); font-weight: 600; margin-bottom: 25px;">10:00 AM - 11:30 PM</p>
+          <h3>Join the Club</h3>
+          <p>Get notified about special student discounts & campus events.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your Email" required>
+            <button type="submit"><i class="fa-solid fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+        <p>&copy; 2026 <span>ZOOP CAFE</span>. All Rights Reserved. Made for food lovers.</p>
+        <a href="admin-login.html" class="admin-login-link" style="font-size: 0.75rem; color: var(--text-muted); opacity: 0.3; text-decoration: none; transition: opacity 0.3s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.3">Admin</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <!-- GSAP CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  
+  <!-- AOS JS CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  
+  <!-- Cafe Data -->
+  
+  <!-- Admin Controls Script -->
+
+  <!-- Main Script -->
+  
+  <!-- Reviews Specific Script -->
+</body>
+</html>

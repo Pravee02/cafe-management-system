@@ -64,7 +64,6 @@ A modern full-stack Cafe Management System designed for cafes and restaurants. T
 
 
 ## Admin Access
-
 ### Login Credentials
 
 * Username: zoops

@@ -48,6 +48,20 @@ A modern full-stack Cafe Management System designed for cafes and restaurants. T
 - QR Menu Access
 - Analytics Dashboard
 
+## Project Screenshots
+
+### Home Page
+![Home Page](screenshot/homepage.png)
+
+### Home Page 2
+![Home Page 2](screenshot/homepage2.png)
+
+### Home Page 2
+![Menu Items](screenshot/MenuItems.png)
+
+### Home Page 2
+![Admin Login Button](screenshot/adminlogin.png)
+
 ## Author
 
 Praveen M
